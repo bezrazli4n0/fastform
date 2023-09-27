@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { Navbar, Button } from "@/components";
+import { TextArea, Button } from "@/components";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
@@ -20,7 +20,6 @@ export default async function Form({ params }: { params: { id: string } }) {
 
     return (
         <>
-            <Navbar />
             <main
                 className={
                     "flex flex-col items-center justify-center p-6 pt-16"
@@ -32,11 +31,10 @@ export default async function Form({ params }: { params: { id: string } }) {
                         {formName}
                         {"”"}
                     </h1>
-                    <textarea
-                        className={"w-full"}
+                    <TextArea
                         defaultValue={`<iframe src="https://${host}/embed/${params.id}" width="530px" height="320px"></iframe>`}
                         readOnly
-                    ></textarea>
+                    />
                     <form
                         method={"POST"}
                         action={"/api/form/delete"}

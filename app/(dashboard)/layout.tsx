@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider, ClerkLoading, ClerkLoaded } from "@clerk/nextjs";
 import { ruRU } from "@clerk/localizations";
-import { Loader } from "@/components";
+import { Loader, Navbar } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +44,10 @@ export default function RootLayout({
                 <body
                     className={`${inter.className} h-[100dvh] w-[100dvw] bg-[#27252B]`}
                 >
-                    <ClerkLoaded>{children}</ClerkLoaded>
+                    <ClerkLoaded>
+                        <Navbar />
+                        {children}
+                    </ClerkLoaded>
                     <ClerkLoading>
                         <Loader />
                     </ClerkLoading>
