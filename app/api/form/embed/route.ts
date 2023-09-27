@@ -39,57 +39,69 @@ export async function POST(req: NextRequest) {
 
     const form = data[0] as unknown as Form;
 
-    if (form.leadTarget === "Telegram") {
-        const tgMeta = form.meta as unknown as {
-            chatId: string;
-        };
+    try {
+        if (form.leadTarget === "Telegram") {
+            const tgMeta = form.meta as unknown as {
+                chatId: string;
+            };
 
-        const bot = new Telegraf(TG_BOT_TOKEN);
-        await bot.telegram.sendMessage(
-            tgMeta.chatId,
-            `\`\`\`json\n${JSON.stringify(
-                Object.fromEntries(formData.entries()),
-                null,
-                2
-            )}\`\`\``,
-            { parse_mode: "MarkdownV2" }
-        );
+            const bot = new Telegraf(TG_BOT_TOKEN);
+            await bot.telegram.sendMessage(
+                tgMeta.chatId,
+                `\`\`\`json\n${JSON.stringify(
+                    Object.fromEntries(formData.entries()),
+                    null,
+                    2
+                )}\`\`\``,
+                { parse_mode: "MarkdownV2" }
+            );
 
-        const { error: updateError } = await supabase
-            .from("forms")
-            .update({
-                leads: form.leads + 1,
-            })
-            .eq("id", id);
-        if (updateError !== null) {
+            const { error: updateError } = await supabase
+                .from("forms")
+                .update({
+                    leads: form.leads + 1,
+                })
+                .eq("id", id);
+            if (updateError !== null) {
+                return NextResponse.json(
+                    {
+                        error: "Internal server error.",
+                        cause: JSON.stringify(updateError),
+                    },
+                    {
+                        status: 500,
+                        headers: {
+                            Location: `/embed/${id}?status=error`,
+                        },
+                    }
+                );
+            }
+
             return NextResponse.json(
+                { status: "ok" },
                 {
-                    error: "Internal server error.",
-                    cause: JSON.stringify(updateError),
-                },
+                    status: 302,
+                    headers: {
+                        Location: `/embed/${id}?status=done`,
+                    },
+                }
+            );
+        } else {
+            return NextResponse.json(
+                { error: "Not Implemented." },
                 {
-                    status: 500,
+                    status: 501,
                     headers: {
                         Location: `/embed/${id}?status=error`,
                     },
                 }
             );
         }
-
+    } catch (error: any) {
         return NextResponse.json(
-            { status: "ok" },
+            { error: "Internal server error.", cause: JSON.stringify(error) },
             {
-                status: 302,
-                headers: {
-                    Location: `/embed/${id}?status=done`,
-                },
-            }
-        );
-    } else {
-        return NextResponse.json(
-            { status: "Not Implemented." },
-            {
-                status: 501,
+                status: 500,
                 headers: {
                     Location: `/embed/${id}?status=error`,
                 },
