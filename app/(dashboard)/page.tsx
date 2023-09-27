@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Card, CardLayout, Navbar } from "@/components";
+import { Card, CardLayout } from "@/components";
 import { auth } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase";
 
@@ -28,7 +28,6 @@ export default async function Dashboard() {
 
     return (
         <>
-            <Navbar />
             <main
                 className={
                     "flex flex-col items-center justify-center gap-7 p-6"

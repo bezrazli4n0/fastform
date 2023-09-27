@@ -1,9 +1,8 @@
-import { Input, Button, Select, Navbar } from "@/components";
+import { Input, Button, Select } from "@/components";
 
 export default function Form() {
     return (
         <>
-            <Navbar />
             <main
                 className={
                     "flex flex-col items-center justify-center gap-7 p-6 pt-16"
@@ -16,7 +15,7 @@ export default function Form() {
                     method={"POST"}
                     action={"/api/form"}
                     className={
-                        "grid grid-cols-[min-content_auto] gap-2 whitespace-nowrap p-3"
+                        "grid w-full grid-cols-[min-content_auto] items-center gap-2 whitespace-nowrap p-3 md:max-w-lg"
                     }
                 >
                     <label className={"text-sm text-[#F4EDFF]"}>
@@ -36,7 +35,7 @@ export default function Form() {
                     <Input
                         name={"tgChatId"}
                         required
-                        placeholder={"13371337.."}
+                        placeholder={"123456789.."}
                     />
                     <section className={"col-span-2"}>
                         <Button type={"submit"}>Создать!</Button>
