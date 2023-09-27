@@ -1,27 +1,47 @@
 {
-  "name": "fastform",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "next": "latest"
-  },
-  "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
-    "@types/node": "latest",
-    "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest"
-  }
+    "name": "fastform",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Конструктор онлайн форм для сбора данных ✨",
+    "license": "MIT",
+    "author": {
+        "name": "b3zrazli4n0"
+    },
+    "repository": {
+        "url": "https://github.com/bezrazli4n0/fastform"
+    },
+    "readme": "README.md",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "fmt:fix": "yarn prettier --write ."
+    },
+    "dependencies": {
+        "@clerk/localizations": "^1.26.1",
+        "@clerk/nextjs": "^4.24.2",
+        "@supabase/supabase-js": "^2.36.0",
+        "encoding": "^0.1.13",
+        "lucide-react": "^0.279.0",
+        "next": "latest",
+        "node-fetch": "^3.3.2",
+        "prettier-plugin-tailwindcss": "^0.5.4",
+        "react": "latest",
+        "react-dom": "latest",
+        "telegraf": "^4.14.0"
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "autoprefixer": "latest",
+        "clsx": "^2.0.0",
+        "eslint": "latest",
+        "eslint-config-next": "latest",
+        "postcss": "latest",
+        "prettier": "^3.0.3",
+        "tailwindcss": "latest",
+        "typescript": "latest"
+    }
 }
