@@ -35,21 +35,27 @@ export default async function Form({ params }: { params: { id: string } }) {
                         defaultValue={`<iframe src="https://${host}/embed/${params.id}" width="530px" height="320px"></iframe>`}
                         readOnly
                     />
-                    <form
-                        method={"POST"}
-                        action={"/api/form/delete"}
-                        className={"w-full"}
-                    >
-                        <input type={"hidden"} name={"id"} value={params.id} />
-                        <Button type={"submit"}>Удалить</Button>
-                    </form>
-                    <Link
-                        href={`/embed/${params.id}`}
-                        target={"_blank"}
-                        className={"w-full"}
-                    >
-                        <Button>Открыть форму</Button>
-                    </Link>
+                    <section className={"flex flex-col gap-2"}>
+                        <form
+                            method={"POST"}
+                            action={"/api/form/delete"}
+                            className={"w-full"}
+                        >
+                            <input
+                                type={"hidden"}
+                                name={"id"}
+                                value={params.id}
+                            />
+                            <Button type={"submit"}>Удалить</Button>
+                        </form>
+                        <Link
+                            href={`/embed/${params.id}`}
+                            target={"_blank"}
+                            className={"w-full"}
+                        >
+                            <Button>Открыть форму</Button>
+                        </Link>
+                    </section>
                 </section>
             </main>
         </>
