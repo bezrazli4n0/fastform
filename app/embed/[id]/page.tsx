@@ -42,7 +42,7 @@ export default function FormEmbed({
             method={"POST"}
             action={"/api/form/embed"}
             className={
-                "flex h-full w-full flex-col justify-center gap-2 bg-[#F5F5F5]"
+                "flex h-full w-full flex-col justify-center gap-2 bg-[#F5F5F5] p-3"
             }
         >
             <label className={"flex flex-col gap-[6px] text-sm text-[#0F172A]"}>

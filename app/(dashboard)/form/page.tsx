@@ -1,4 +1,5 @@
 import { Input, Button, Select } from "@/components";
+import Link from "next/link";
 
 export default function Form() {
     return (
@@ -40,6 +41,21 @@ export default function Form() {
                     <section className={"col-span-2"}>
                         <Button type={"submit"}>Создать!</Button>
                     </section>
+                    <p
+                        className={
+                            "col-span-2 text-center text-xs font-normal text-[#F4EDFF] opacity-75"
+                        }
+                    >
+                        * Обязательно добавьте бота в свой чат,
+                        <br /> чтобы получать заявки{" "}
+                        <Link
+                            href={"https://t.me/fastform_bot"}
+                            target={"_blank"}
+                            className={"font-bold text-[#E8DCFC] underline"}
+                        >
+                            @fastform_bot
+                        </Link>
+                    </p>
                 </form>
             </main>
         </>
