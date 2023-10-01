@@ -65,10 +65,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json(
                 { status: "ok" },
                 {
-                    status: 302,
-                    headers: {
-                        Location: `/embed/${id}?status=done`,
-                    },
+                    status: 200,
                 }
             );
         } else {
@@ -79,10 +76,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json(
             { error: "Internal server error.", cause: JSON.stringify(error) },
             {
-                status: 302,
-                headers: {
-                    Location: `/embed/${id}?status=error`,
-                },
+                status: 500,
             }
         );
     }

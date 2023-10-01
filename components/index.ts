@@ -6,3 +6,6 @@ export * from "./Select";
 export * from "./Navbar";
 export * from "./Loader";
 export * from "./TextArea";
+export * from "./FormEmbedView";
+export * from "./SubmitEmbed";
+export * from "./Provider";
