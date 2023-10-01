@@ -1,9 +1,8 @@
 import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ClerkProvider, ClerkLoading, ClerkLoaded } from "@clerk/nextjs";
-import { ruRU } from "@clerk/localizations";
-import { Loader, Navbar } from "@/components";
+import { ClerkLoading, ClerkLoaded } from "@clerk/nextjs";
+import { Loader, Navbar, Provider } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,28 +18,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <ClerkProvider
-                localization={ruRU}
-                appearance={{
-                    elements: {
-                        formButtonPrimary: {
-                            backgroundColor: "#6B16F4",
-                            "&:hover, &:focus": {
-                                backgroundColor: "#7a2df5",
-                            },
-                            "&:active": {
-                                backgroundColor: "#6014dc",
-                            },
-                        },
-                        footerActionLink: {
-                            color: "#6B16F4",
-                            "&:hover, &:focus": {
-                                color: "#7a2df5",
-                            },
-                        },
-                    },
-                }}
-            >
+            <Provider>
                 <body
                     className={`${inter.className} h-[100dvh] w-[100dvw] bg-[#27252B]`}
                 >
@@ -52,7 +30,7 @@ export default function RootLayout({
                         <Loader />
                     </ClerkLoading>
                 </body>
-            </ClerkProvider>
+            </Provider>
         </html>
     );
 }

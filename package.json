@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@clerk/localizations": "^1.26.1",
-        "@clerk/nextjs": "^4.24.2",
+        "@clerk/nextjs": "4.24.2",
         "@supabase/supabase-js": "^2.36.0",
         "encoding": "^0.1.13",
         "lucide-react": "^0.279.0",
@@ -29,17 +29,18 @@
         "prettier-plugin-tailwindcss": "^0.5.4",
         "react": "latest",
         "react-dom": "latest",
+        "sharp": "^0.32.6",
         "telegraf": "^4.14.0"
     },
     "devDependencies": {
         "@types/node": "^20.7.1",
-        "@types/react": "latest",
+        "@types/react": "^18.2.24",
         "@types/react-dom": "latest",
         "autoprefixer": "latest",
         "clsx": "^2.0.0",
         "eslint": "latest",
         "eslint-config-next": "latest",
-        "postcss": "latest",
+        "postcss": "^8.4.31",
         "prettier": "^3.0.3",
         "tailwindcss": "latest",
         "typescript": "latest"
